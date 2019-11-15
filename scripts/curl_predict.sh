@@ -1,0 +1,1 @@
+curl -X POST https://asia-northeast1-chris-loves-ai.cloudfunctions.net/predict_wine -d ''

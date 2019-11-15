@@ -2,10 +2,7 @@ import traceback
 import logging
 from flask import jsonify
 from googleapiclient import discovery
-import config
 from werkzeug.exceptions import BadRequest
-import os
-from pathlib import Path
 import config
 from codes import *
 
@@ -17,9 +14,6 @@ def predict_via_ai_platform(inputs, _model, _version=None):
     :param _version: deployed version of model. default=None.
     :return: predicted value. list.
     """
-
-    # dir = Path().absolute()
-    # os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = os.path.join(dir, config.KEYFILE)
 
     service = discovery.build('ml', 'v1')
     name = f'projects/{config.GCP_PROJECT}/models/{_model}'

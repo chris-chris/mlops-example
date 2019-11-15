@@ -25,7 +25,7 @@ def get_params():
     # data hyperparams
     parser.add_argument("--input_size", type=int, default=10)
 
-    parser.add_argument("--framework", type=str, default="sklearn")
+    parser.add_argument("--framework", type=str, default="keras")
     parser.add_argument("--keras_model", type=str, default="dense")
     parser.add_argument("--sklearn_model", type=str, default="linear")
     parser.add_argument("--loss", type=str, default="squared_loss")
@@ -51,11 +51,11 @@ def hyperparam():
     args.framework = args.framework
     """@nni.variable(nni.choice('linear', 'sgd'), name=args.sklearn_model)"""
     args.sklearn_model = args.sklearn_model
-    """@nni.variable(nni.choice('squared_loss', 'huber', 'epsilon_insensitive'), name=args.loss)"""
+    """@nni.variable(nni.choice('squared_loss', 'huber'), name=args.loss)"""
     args.loss = args.loss
     """@nni.variable(nni.choice(32, 64, 128), name=args.batch_size)"""
     args.batch_size = args.batch_size
-    """@nni.variable(nni.choice(10, 50, 100, 150, 200, 500), name=args.epoch)"""
+    """@nni.variable(nni.choice(100), name=args.epoch)"""
     args.epoch = args.epoch
     """@nni.variable(nni.loguniform(0.0001, 0.1), name=args.lr)"""
     args.lr = args.lr
@@ -66,10 +66,12 @@ def hyperparam():
 @ex.automain
 def run(args):
     if args.framework == 'sklearn':
-        result = sk.train_sklearn(args)
+        test_loss = sk.train_sklearn(args)
     elif args.framework == 'keras':
-        result = ke.train_keras(args)
+        test_loss = ke.train_keras(args, ex)
     else:
         return None
 
-    return result
+    ex.log_scalar('loss', test_loss)
+
+    return test_loss

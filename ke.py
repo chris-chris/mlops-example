@@ -7,9 +7,18 @@ from datetime import datetime
 import data
 import os
 import subprocess
+from tensorflow.keras import callbacks
+
+import train
+import math
 
 
-def train_keras(args):
+def write_log(logs, ex):
+    print(logs)
+    ex.log_scalar('loss', logs.get('loss'))
+    ex.log_scalar('val_loss', logs.get('val_loss'))
+
+def train_keras(args, ex):
 
     # This has been tested on TF 1.14
     print(tf.__version__)
@@ -32,8 +41,13 @@ def train_keras(args):
 
     model.summary()
 
+    cb = tf.keras.callbacks.LambdaCallback(
+        on_epoch_end=lambda epoch, logs: write_log(logs, ex)
+    )
+
     model.fit(train_data.values, train_labels.values, epochs=args.epoch, batch_size=args.batch_size,
-              validation_split=0.1)
+              validation_split=0.1,
+              callbacks=[cb])
     test_loss = model.evaluate(test_data, test_labels)
     print("final %s" % test_loss)
     '''@nni.report_final_result(test_loss)'''
@@ -84,3 +98,5 @@ def train_keras(args):
     subprocess.call(f"gcloud ai-platform predict --model=keras_wine --json-instances=predictions.json --version={keras_version_name}", shell=True)
 
     print(f"model: keras_wine version: {keras_version_name} path: {keras_model_export_path}")
+
+    return test_loss

@@ -58,3 +58,5 @@ def train_sklearn(args):
     cmd = f"gcloud ai-platform predict --model=sklearn_wine --json-instances=predictions.json " \
           f"--version={sklearn_version_name}"
     subprocess.call(cmd, shell=True)
+
+    return test_loss
