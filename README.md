@@ -10,6 +10,20 @@ https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x/
 pip install -r requirements.txt
 ```
 
+## Train
+
+```bash
+GOOGLE_APPLICATION_CREDENTIALS=[crendentials json file] python train.py
+
+GOOGLE_APPLICATION_CREDENTIALS=chris-loves-ai-key.json python train.py
+```
+
+or
+```bash
+export GOOGLE_APPLICATION_CREDENTIALS=chris-loves-ai-key.json
+python train.py
+```
+
 ## Install NNI
 
 ```bash
