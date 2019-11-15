@@ -2,7 +2,7 @@ import subprocess
 import pandas as pd
 from sklearn.utils import shuffle
 import config
-from google.cloud import bigquery, storage
+from google.cloud import storage
 import os
 from pathlib import Path
 import config

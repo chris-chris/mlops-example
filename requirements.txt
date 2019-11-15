@@ -2,3 +2,7 @@ witwidget
 tensorflow==2.0.0b1
 sacred
 sklearn
+git+https://github.com/microsoft/nni
+pymongo
+google-cloud-storage
+dnspython
