@@ -34,3 +34,7 @@ npm install -g omniboard
 omniboard -m hostname:port:database
 
 ```
+### Local
+```bash
+omniboard -m 127.0.0.1:27017:experiments
+```
