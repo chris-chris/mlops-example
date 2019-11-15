@@ -15,6 +15,6 @@ tuner:
     #choice: maximize, minimize
     optimize_mode: minimize
 trial:
-  command: python train.py
+  command: GOOGLE_APPLICATION_CREDENTIALS=chris-loves-ai-key.json python train.py
   codeDir: .
   gpuNum: 0

@@ -74,7 +74,7 @@ def predict_wine(request):
         _version = json_request.get(VERSION)
         inputs = json_request.get(INPUTS)
 
-        data = predict_via_ai_platform(_model, _version, inputs)
+        data = predict_via_ai_platform(inputs, _model, _version)
 
         res = {'code': 200, 'message': 'Success', 'data': data}
         return jsonify(res)
@@ -88,8 +88,8 @@ def predict_wine(request):
 
 
 if __name__ == '__main__':
-    _model = 'sklearn_wine'
-    _version = 'v20191115_1609'
+    _model = 'keras_wine'
+    _version = 'v20191115_1722'
     inputs = [[7.8, 0.21, 0.49, 1.2, 0.036, 20.0, 99.0, 0.99, 3.05, 0.28, 12.1]]
     instances = {
         'instances': inputs
