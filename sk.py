@@ -23,7 +23,7 @@ def train_sklearn(args):
         raise Exception(f'sklearn_model {args.sklearn_model} is not supported')
 
     test_loss = scikit_model.score(test_data, test_labels)
-    test_loss = test_loss[0]
+    test_loss = test_loss
     print('test_loss:', test_loss)
     '''@nni.report_final_result(test_loss)'''
 
