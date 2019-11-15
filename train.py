@@ -4,15 +4,11 @@ import ke
 import sk
 # from witwidget.notebook.visualization import WitWidget, WitConfigBuilder
 
-from pathlib import Path
 import config
 
 from sacred import Experiment
 from sacred.observers import MongoObserver
 import argparse
-
-# dir = Path().absolute()
-# os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = os.path.join(dir, config.KEYFILE)
 
 ex = Experiment('wine')
 ex.observers.append(MongoObserver.create(url=config.MONGO_URL,

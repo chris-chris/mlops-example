@@ -10,10 +10,11 @@ import config
 
 def load_data():
 
-    subprocess.call("wget 'http://archive.ics.uci.edu/ml/machine-learning-databases/wine-quality/winequality-white.csv' -O winequality-white.csv",
-                    shell=True)
+    if not os.path.exists('winequality-white.csv'):
+        subprocess.call("wget 'http://archive.ics.uci.edu/ml/machine-learning-databases/wine-quality/winequality-white.csv' -O winequality-white.csv",
+                        shell=True)
 
-    # !wget 'http://archive.ics.uci.edu/ml/machine-learning-databases/wine-quality/winequality-white.csv'
+        # !wget 'http://archive.ics.uci.edu/ml/machine-learning-databases/wine-quality/winequality-white.csv'
 
     data = pd.read_csv('winequality-white.csv', index_col=False, delimiter=';')
     data = shuffle(data, random_state=4)
