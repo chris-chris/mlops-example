@@ -18,8 +18,8 @@ def predict_via_ai_platform(inputs, _model, _version=None):
     :return: predicted value. list.
     """
 
-    dir = Path().absolute()
-    os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = os.path.join(dir, config.KEYFILE)
+    # dir = Path().absolute()
+    # os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = os.path.join(dir, config.KEYFILE)
 
     service = discovery.build('ml', 'v1')
     name = f'projects/{config.GCP_PROJECT}/models/{_model}'

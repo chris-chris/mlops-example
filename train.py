@@ -11,8 +11,8 @@ from sacred import Experiment
 from sacred.observers import MongoObserver
 import argparse
 
-dir = Path().absolute()
-os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = os.path.join(dir, config.KEYFILE)
+# dir = Path().absolute()
+# os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = os.path.join(dir, config.KEYFILE)
 
 ex = Experiment('wine')
 ex.observers.append(MongoObserver.create(url=config.MONGO_URL,
@@ -21,8 +21,6 @@ ex.observers.append(MongoObserver.create(url=config.MONGO_URL,
 
 def get_params():
     parser = argparse.ArgumentParser()
-    # gcp ai-platform args
-    parser.add_argument("--job-dir", default='.', help="job dir")
 
     # data hyperparams
     parser.add_argument("--input_size", type=int, default=10)
@@ -35,7 +33,7 @@ def get_params():
     # training hyperparams
 
     parser.add_argument("--batch_size", type=int, default=32)
-    parser.add_argument("--epoch", default=1, type=int)
+    parser.add_argument("--epoch", default=10, type=int)
     parser.add_argument("--lr", default=0.001, type=float)
 
     args = parser.parse_args()
@@ -57,6 +55,8 @@ def hyperparam():
     args.loss = args.loss
     """@nni.variable(nni.choice(32, 64, 128), name=args.batch_size)"""
     args.batch_size = args.batch_size
+    """@nni.variable(nni.choice(10, 50, 100, 150, 200, 500), name=args.epoch)"""
+    args.epoch = args.epoch
     """@nni.variable(nni.loguniform(0.0001, 0.1), name=args.lr)"""
     args.lr = args.lr
 

@@ -1,5 +1,5 @@
 witwidget
-tensorflow==2.0.0
+tensorflow==2.0.0b1
 sacred
 sklearn
 argparse

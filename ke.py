@@ -32,7 +32,8 @@ def train_keras(args):
 
     model.summary()
 
-    model.fit(train_data.values, train_labels.values, epochs=4, batch_size=32, validation_split=0.1)
+    model.fit(train_data.values, train_labels.values, epochs=args.epoch, batch_size=args.batch_size,
+              validation_split=0.1)
     test_loss = model.evaluate(test_data, test_labels)
     print("final %s" % test_loss)
     '''@nni.report_final_result(test_loss)'''
