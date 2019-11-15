@@ -16,5 +16,21 @@ pip install -r requirements.txt
 pip install git+https://github.com/microsoft/nni
 ```
 
+### Run AutoML Experiment
+
+```bash
+nnictl create -c nni.yml
+```
+
 ## Install sacred
 
+```bash
+pip install sacred
+```
+
+## Install omniboard
+```bash
+npm install -g omniboard
+omniboard -m hostname:port:database
+
+```
