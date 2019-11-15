@@ -1,3 +1,5 @@
 KEYFILE = 'chris-loves-ai-key.json'
 GCP_PROJECT = 'chris-loves-ai'
-KERAS_MODEL_BUCKET = 'gs://chris-loves-ai/tutorial'
+GS_BUCKET_NAME = 'chris-loves-ai'
+KERAS_MODEL_BUCKET = f'gs://{GS_BUCKET_NAME}/wine/keras'
+SKLEARN_MODEL_BUCKET = f'gs://{GS_BUCKET_NAME}/wine/sklearn'

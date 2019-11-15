@@ -89,7 +89,7 @@ def predict(request):
 
 if __name__ == '__main__':
     _model = 'keras_wine'
-    _version = 'v20191115_1117'
+    _version = 'v20191115_1606'
     inputs = [[7.8, 0.21, 0.49, 1.2, 0.036, 20.0, 99.0, 0.99, 3.05, 0.28, 12.1]]
     instances = {
         'instances': inputs
