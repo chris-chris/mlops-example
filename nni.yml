@@ -1,0 +1,20 @@
+authorName: Chris
+experimentName: wine
+trialConcurrency: 4
+maxExecDuration: 48h
+maxTrialNum: 10
+#choice: local, remote, pai
+trainingServicePlatform: local
+#choice: true, false
+useAnnotation: true
+tuner:
+  #choice: TPE, Random, Anneal, Evolution, BatchTuner, MetisTuner
+  #SMAC (SMAC should be installed through nnictl)
+  builtinTunerName: Anneal
+  classArgs:
+    #choice: maximize, minimize
+    optimize_mode: minimize
+trial:
+  command: python train.py
+  codeDir: .
+  gpuNum: 0

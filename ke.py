@@ -9,7 +9,7 @@ import os
 import subprocess
 
 
-def train_keras():
+def train_keras(args):
 
     # This has been tested on TF 1.14
     print(tf.__version__)
@@ -33,7 +33,9 @@ def train_keras():
     model.summary()
 
     model.fit(train_data.values, train_labels.values, epochs=4, batch_size=32, validation_split=0.1)
-
+    test_loss = model.evaluate(test_data, test_labels)
+    print("final %s" % test_loss)
+    '''@nni.report_final_result(test_loss)'''
     # Update these to your own GCP project + model names
 
     # Add the serving input layer below in order to serve our model on AI Platform
@@ -51,7 +53,8 @@ def train_keras():
     serving_model = tf.keras.Sequential()
     serving_model.add(ServingInput('serving', tf.float32, (None, input_size)))
     serving_model.add(restored_model)
-    tf.contrib.saved_model.save_keras_model(serving_model, keras_model_export_path)  # export the model to your GCS bucket
+    tf.keras.models.save_model(serving_model, keras_model_export_path)
+    # tf.keras.models.save_model(serving_model, keras_model_export_path)  # export the model to your GCS bucket
 
     # Configure gcloud to use your project
     # !gcloud config set project $GCP_PROJECT

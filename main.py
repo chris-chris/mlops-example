@@ -38,7 +38,7 @@ def predict_via_ai_platform(inputs, _model, _version=None):
     return response['predictions']
 
 
-def predict(request):
+def predict_wine(request):
     try:
         """
         :param request: request json object has three values.
@@ -88,8 +88,8 @@ def predict(request):
 
 
 if __name__ == '__main__':
-    _model = 'keras_wine'
-    _version = 'v20191115_1606'
+    _model = 'sklearn_wine'
+    _version = 'v20191115_1609'
     inputs = [[7.8, 0.21, 0.49, 1.2, 0.036, 20.0, 99.0, 0.99, 3.05, 0.28, 12.1]]
     instances = {
         'instances': inputs
