@@ -21,7 +21,7 @@ def get_params():
     # data hyperparams
     parser.add_argument("--input_size", type=int, default=10)
 
-    parser.add_argument("--framework", type=str, default="keras")
+    parser.add_argument("--framework", type=str, default="sklearn")
     parser.add_argument("--keras_model", type=str, default="dense")
     parser.add_argument("--sklearn_model", type=str, default="linear")
     parser.add_argument("--loss", type=str, default="squared_loss")
