@@ -1,3 +1,4 @@
+"""Configure program configs"""
 KEYFILE = 'chris-loves-ai-key.json'
 GCP_PROJECT = 'chris-loves-ai'
 GS_BUCKET_NAME = 'chris-loves-ai'
