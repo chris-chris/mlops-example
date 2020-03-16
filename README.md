@@ -2,6 +2,12 @@
 
 This MLOps example provides a sample AI production setup using Google AI Platform, Tensorflow 2.0, Google Functions(Serverless API), sacred(Experiment Management) and Microsoft NNI(AutoML)
 
+## Tutorial
+
+- Korean
+
+https://brunch.co.kr/@chris-song/101
+
 ## Install MongoDB
 
 https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x/
