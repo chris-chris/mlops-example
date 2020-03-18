@@ -8,6 +8,10 @@ This MLOps example provides a sample AI production setup using Google AI Platfor
 
 https://brunch.co.kr/@chris-song/101
 
+- English(WIP)
+
+http://chris-chris.ai
+
 ## Install MongoDB
 
 https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x/
