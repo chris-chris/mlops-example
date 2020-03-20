@@ -31,6 +31,7 @@ GOOGLE_APPLICATION_CREDENTIALS=chris-loves-ai-key.json python train.py
 ```
 
 or
+
 ```bash
 export GOOGLE_APPLICATION_CREDENTIALS=chris-loves-ai-key.json
 python train.py
