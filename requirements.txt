@@ -1,7 +1,7 @@
-tensorflow==2.1.0
+tensorflow
 sacred
 sklearn
-git+https://github.com/microsoft/nni
+nni
 pymongo
 google-cloud-storage
 dnspython
