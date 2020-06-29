@@ -24,6 +24,12 @@ https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x/
 pip install -r requirements.txt
 ```
 
+# Download Dataset
+
+```bash
+$ wget https://archive.ics.uci.edu/ml/machine-learning-databases/wine-quality/winequality-white.csv
+```
+
 ## Train
 
 ```bash
