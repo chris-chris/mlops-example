@@ -48,7 +48,7 @@ python train.py
 ## Install NNI
 
 ```bash
-pip install git+https://github.com/microsoft/nni
+pip install nni
 ```
 
 ### Run AutoML Experiment
